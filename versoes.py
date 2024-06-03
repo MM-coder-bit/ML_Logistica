@@ -23,4 +23,4 @@ print("Versão da Linguagem Python:", version_number)
 for package in packages:
     print(f"Versão do {package.__name__}:", package.__version__)
 
-print('\nObrigado. Equipe Data Science Academy\n')
+print('\nObrigado.\n')
