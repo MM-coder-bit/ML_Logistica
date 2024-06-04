@@ -47,7 +47,7 @@ no proximo passo é feito:
 
 no proximo passo é feito:
 - treina o modelo de Machine Learning
-- pre~e os dados (inferência)
+- prevê os dados (inferência)
 - verifica a acurácia do modelo
 - gera relatório de desempenho
 - salva os pesos do modelo e transformadores
