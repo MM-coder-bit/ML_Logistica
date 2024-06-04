@@ -47,19 +47,19 @@ y_train = le_tipo_produto.transform(y_train)
 y_test = le_tipo_produto.transform(y_test)
 
 # Cria o modelo
-modelo_dsa = DecisionTreeClassifier()
+modelo = DecisionTreeClassifier()
 
 # Treina o modelo
-modelo_dsa.fit(X_train, y_train)
+modelo.fit(X_train, y_train)
 
 # Faz previsão com o modelo
-y_pred = modelo_dsa.predict(X_test)
+y_pred = modelo.predict(X_test)
 
 # Calcula a acurácia
-acc_modelo_dsa = accuracy_score(y_test, y_pred)
+acc_modelo = accuracy_score(y_test, y_pred)
 
 # Print
-print(f"\nAcurácia: ", round(acc_modelo_dsa,2))
+print(f"\nAcurácia: ", round(acc_modelo,2))
 
 print("\nRelatório de Classificação:\n")
 
@@ -70,13 +70,9 @@ report = classification_report(y_test, y_pred)
 print(report)
 
 # Salva o modelo treinado
-joblib.dump(modelo_dsa, 'modelos/modelo_logistica.pkl')
+joblib.dump(modelo, 'modelos/modelo_logistica.pkl')
 
 # Salva os transformadores
 joblib.dump(le_tipo_embalagem, 'modelos/transformador_tipo_embalagem.pkl')
 joblib.dump(le_tipo_produto, 'modelos/transformador_tipo_produto.pkl')
-
-
-
-
 
