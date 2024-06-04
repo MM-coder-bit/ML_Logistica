@@ -65,3 +65,16 @@ Resultado do treinamento:
 ![p1_modelo_5.png](imagens/p1_modelo_5.png)
 
 </details>
+
+<details>
+  <summary>p1_deploy.py</summary>
+
+## executando o arquivo p1_deploy.py
+Executa as primeiras linhas para:
+- importar os pacotes;
+- instância o Flask;
+- traz os pesos e tranformadores do arquivo para a memória
+  
+![p1_deploy_1.png](imagens/p1_deploy_1.png)
+
+</details>
