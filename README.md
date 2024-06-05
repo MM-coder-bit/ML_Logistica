@@ -1,80 +1,110 @@
 # ML_Logistica
-Desenvolvimento de ML para a aréa da Logistica, este projeto visa prever o tipo de produto baseado no peso e o tipo de embalegem
+
+Desenvolvimento de Machine Learning para a área de Logística. Este projeto visa prever o tipo de produto baseado no peso e no tipo de embalagem.
 
 <details>
   <summary>Introdução</summary>
+  
+  ## Estrutura do Projeto
 
-## Detalhes da pasta
-![Uma imagem de exemplo](imagens/explicacaoarquivos.png)
-* A pasta `modelo` contêm os dados dos modelos treinados
-* A pasta `templates` contêm o template da pagina *HTML*
-* O arquivo `p1_deploy`contêm o desenvolvimento de software
-* O arquivo `p1_modelo`contêm o desenvolvimento do *Machine Learning*
-* O arquivo `versoes`contêm o código para verificar as versões dos pacotes
+  ![Explicação dos Arquivos](imagens/explicacaoarquivos.png)
+  
+  - A pasta `modelo` contém os dados dos modelos treinados.
+  - A pasta `templates` contém o template da página *HTML*.
+  - O arquivo `p1_deploy.py` contém o desenvolvimento do software para deployment.
+  - O arquivo `p1_modelo.py` contém o desenvolvimento do modelo de *Machine Learning*.
+  - O arquivo `versoes.py` contém o código para verificar as versões dos pacotes utilizados.
   
 </details>
 
 <details>
-  <summary>versões.py</summary>
+  <summary>versoes.py</summary>
+  
+  ## Executando o arquivo `versoes.py`
 
-## executando o arquivo versoes.py
-![versoes.py](imagens/versoes.png)
-Executa o arquivo para avaliar os pacotes e versões instalados para este projeto
-
+  ![versoes.py](imagens/versoes.png)
+  
+  Este script verifica os pacotes e versões instalados para este projeto.
+  
 </details>
 
 <details>
   <summary>p1_modelo.py</summary>
-
-## executando o arquivo p1_modelo.py
-Executa as primeiras linhas para:
-- importar os pacotes;
-- trazer os dados de entradas e saidas;
-- separar os dados
   
-![p1_modelo_1.png](imagens/p1_modelo_1.png)
+  ## Executando o arquivo `p1_modelo.py`
 
-no proximo passo é feito:
-- separação dos dados em treino e teste;
-- aprendizado dos parâmetros categóricos para numéricos
+  Este script realiza as seguintes etapas:
+
+  1. **Importação dos Pacotes e Preparação dos Dados**
+     - Importa os pacotes necessários.
+     - Carrega os dados de entrada e saída.
+     - Separa os dados.
+
+     ![Preparação dos Dados](imagens/p1_modelo_1.png)
   
-![p1_modelo_2.png](imagens/p1_modelo_2.png)
-
-no proximo passo é feito:
-- transformação dos dados categóricos para numéricos definidos pelo fit (aprendizado dos parâmetros)
+  2. **Divisão dos Dados**
+     - Divide os dados em conjuntos de treino e teste.
+     - Aprende os parâmetros categóricos para convertê-los em numéricos.
+     
+     ![Divisão dos Dados](imagens/p1_modelo_2.png)
   
-![p1_modelo_3.png](imagens/p1_modelo_3.png)
+  3. **Transformação dos Dados**
+     - Transforma os dados categóricos em numéricos com base no ajuste (`fit`).
 
-no proximo passo é feito:
-- treina o modelo de Machine Learning
-- prevê os dados (inferência)
-- verifica a acurácia do modelo
-- gera relatório de desempenho
-- salva os pesos do modelo e transformadores
+     ![Transformação dos Dados](imagens/p1_modelo_3.png)
   
-![p1_modelo_4.png](imagens/p1_modelo_4.png)
+  4. **Treinamento e Avaliação do Modelo**
+     - Treina o modelo de Machine Learning.
+     - Realiza previsões (inferência).
+     - Verifica a acurácia do modelo.
+     - Gera um relatório de desempenho.
+     - Salva o modelo treinado e os transformadores.
 
-Resultado do treinamento:
-- acurácia de 67%
-- Precisão (proporção de verdadeiros positivos previstos positivos) está para 50% a classe 0 (Caixa de Papelão) e 100 % a classe 1 (Plástico Bolha)
-- Recall (proporção de verdadeiros positivos realmente positivos) está para 100% a classe 0 (Caixa de Papelão) e 50 % a classe 1 (Plástico Bolha)
-- F1-score que é a média harmônica da precisão e do recall proporciona uma média equilibrada em ambas de 67%
-- Macro Average: A média aritmética das métricas para todas as classes (não ponderada)
-- Weighted Average: A média ponderada das métricas para todas as classes, levando em conta o suporte de cada classe.
+     ![Treinamento e Avaliação](imagens/p1_modelo_4.png)
+
+  ### Resultado do Treinamento:
+  - **Acurácia**: 67%
+  - **Precisão**:
+    - Classe 0 (Caixa de Papelão): 50%
+    - Classe 1 (Plástico Bolha): 100%
+  - **Recall**:
+    - Classe 0 (Caixa de Papelão): 100%
+    - Classe 1 (Plástico Bolha): 50%
+  - **F1-Score**: Média harmônica da precisão e recall, equilibrada em 67%.
+  - **Macro Average**: Média aritmética das métricas para todas as classes (não ponderada).
+  - **Weighted Average**: Média ponderada das métricas para todas as classes, considerando o suporte de cada classe.
   
-![p1_modelo_5.png](imagens/p1_modelo_5.png)
-
+  ![Resultado do Treinamento](imagens/p1_modelo_5.png)
+  
 </details>
 
 <details>
   <summary>p1_deploy.py</summary>
-
-## executando o arquivo p1_deploy.py
-Executa as primeiras linhas para:
-- importar os pacotes;
-- instância o Flask;
-- traz os pesos e tranformadores do arquivo para a memória
   
-![p1_deploy_1.png](imagens/p1_deploy_1.png)
+  ## Executando o arquivo `p1_deploy.py`
 
+  Este script realiza as seguintes etapas:
+
+  1. **Importação e Inicialização**
+     - Importa os pacotes necessários.
+     - Instancia o Flask.
+     - Carrega o modelo e os transformadores salvos.
+
+     ![Inicialização](imagens/p1_deploy_1.png)
+  
+  2. **Renderização da Página e Previsão**
+     - Renderiza a página inicial.
+     - Extrai a previsão do produto a partir dos dados de entrada.
+
+     ![Renderização e Previsão](imagens/p1_deploy_2.png)
+  
+  3. **Execução e Uso**
+     - Executa o código Python.
+     - Utiliza via navegador, inserindo os dados e obtendo o resultado.
+
+     ![Execução e Uso](imagens/p1_deploy_3.png)
+  
 </details>
+
+
+Esta estrutura fornece uma visão detalhada do projeto e facilita a compreensão e a execução dos scripts para desenvolvimento, avaliação e deployment do modelo de Machine Learning.

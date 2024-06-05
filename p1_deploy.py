@@ -10,7 +10,7 @@ import joblib
 app = Flask(__name__)
 
 # Carregar o modelo e transformadores do disco
-modelo_dsa = joblib.load('modelos/modelo_logistica.pkl')
+modelo = joblib.load('modelos/modelo_logistica.pkl')
 le_tipo_embalagem = joblib.load('modelos/transformador_tipo_embalagem.pkl')
 le_tipo_produto = joblib.load('modelos/transformador_tipo_produto.pkl')
 
@@ -32,7 +32,7 @@ def predict():
     tipo_embalagem = le_tipo_embalagem.transform([request.form['tipo_embalagem']])[0]
     
     # Usa o modelo para fazer uma previsão com base no peso e tipo de embalagem
-    prediction = modelo_dsa.predict([[peso, tipo_embalagem]])[0]
+    prediction = modelo.predict([[peso, tipo_embalagem]])[0]
     
     # Converte a previsão codificada de volta ao seu rótulo original
     tipo_produto = le_tipo_produto.inverse_transform([prediction])[0]
@@ -44,10 +44,4 @@ def predict():
 # App
 if __name__ == '__main__':
     app.run()
-
-
-
-
-
-    
 
