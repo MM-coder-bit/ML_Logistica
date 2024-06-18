@@ -1,4 +1,4 @@
-# ML_Logistica
+# ML_Logistica_DecisionTree
 
 Desenvolvimento de Machine Learning para a área de Logística. Este projeto visa prever o tipo de produto baseado no peso e no tipo de embalagem.
 
